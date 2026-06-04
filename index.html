@@ -36,42 +36,47 @@
         Reserve your seat and embark on a surprise culinary adventure.
       </p>
       <div class="reservation-card">
-        <h2>Reserve Now</h2>
+        <h2 id="reserve-heading">Reserve Now</h2>
         <div class="form-placeholder">
-          <form>
+          <form aria-labelledby="reserve-heading">
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Name">
+              <label for="name" class="visually-hidden">Full name</label>
+              <input id="name" name="name" type="text" class="form-control" placeholder="Name" autocomplete="name" required autofocus>
             </div>
             <div class="mb-3">
-              <input type="email" class="form-control" placeholder="Email">
+              <label for="email" class="visually-hidden">Email address</label>
+              <input id="email" name="email" type="email" class="form-control" placeholder="Email" autocomplete="email" required>
             </div>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Zip">
+              <label for="zip" class="visually-hidden">ZIP / Postal code</label>
+              <input id="zip" name="postalcode" type="text" class="form-control" placeholder="Zip" autocomplete="postal-code">
             </div>
             <div class="mb-3">
-              <input type="number" class="form-control" placeholder="Party Size">
+              <label for="party" class="visually-hidden">Party size</label>
+              <input id="party" name="party" type="number" class="form-control" placeholder="Party Size" min="1" max="20" value="2" required aria-describedby="party-help">
+              <div id="party-help" class="form-text">Enter number of guests (1–20).</div>
             </div>
             <div class="mb-3">
-              <select class="form-select">
-                <option selected>Choose...</option>
+              <label for="spice" class="visually-hidden">Spice preference</label>
+              <select id="spice" name="spice" class="form-select" aria-label="Spice preference" required>
+                <option value="" disabled selected>Choose...</option>
                 <option value="mild">Mild</option>
                 <option value="med">Medium</option>
                 <option value="spicy">Spicy</option>
               </select>
             </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">
-                Would you like to pretend it's your birthday for free cake?
-              </label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">
-                I accept that I have no idea where I'll dine, and that's OK.
-              </label>
-            </div>
-            <a href="#" class="btn btn-lg btn-primary">Book My Mystery Meal!</a>
+            <fieldset class="mb-3">
+              <legend class="visually-hidden">Additional options</legend>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="birthday" name="birthday" value="yes">
+                <label class="form-check-label" for="birthday">Would you like to pretend it's your birthday for free cake?</label>
+              </div>
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox" id="accept" name="accept" required>
+                <label class="form-check-label" for="accept">I accept that I have no idea where I'll dine, and that's OK.</label>
+              </div>
+            </fieldset>
+            <button type="submit" class="btn btn-lg btn-primary">Book My Mystery Meal!</button>
           </form>
         </div>
       </div>
